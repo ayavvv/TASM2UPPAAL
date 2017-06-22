@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="TASM">
+    <eClassifiers xsi:type="ecore:EClass" name="Vname" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vname" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="texts">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="texts" ordered="false" unique="false" upperBound="-1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="san" ordered="false" unique="false" upperBound="-1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Ruler">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rlrl" ordered="false" lowerBound="1" eType="/0/Mrules" eOpposite="/0/Mrules/rl"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="relse" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rlname" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rtime" ordered="false" lowerBound="1" eType="/0/Rtimer" containment="true" eOpposite="/0/Rtimer/rti"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rrscs" ordered="false" lowerBound="1" eType="/0/Rresources" containment="true" eOpposite="/0/Rresources/rrs"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="guard" ordered="false" lowerBound="1" eType="/0/Rguard" containment="true" eOpposite="/0/Rguard/rgu"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="effect" ordered="false" lowerBound="1" eType="/0/Reffect" containment="true" eOpposite="/0/Reffect/ref"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Rguard">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rgu" ordered="false" lowerBound="1" eType="/0/Ruler" eOpposite="/0/Ruler/guard"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text_a" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Reffect">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ref" ordered="false" lowerBound="1" eType="/0/Ruler" eOpposite="/0/Ruler/effect"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text_a" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Rresources">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rrs" ordered="false" lowerBound="1" eType="/0/Ruler" eOpposite="/0/Ruler/rrscs"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rrsc" upperBound="-1" eType="/0/Rresource" containment="true" eOpposite="/0/Rresource/rr"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Rresource">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rr" ordered="false" lowerBound="1" eType="/0/Rresources" eOpposite="/0/Rresources/rrsc"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rrmax" ordered="false" unique="false" lowerBound="1" eType="/1/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rrmin" ordered="false" unique="false" lowerBound="1" eType="/1/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rrname" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Rtimer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rti" ordered="false" lowerBound="1" eType="/0/Ruler" eOpposite="/0/Ruler/rtime"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rtmax" ordered="false" unique="false" lowerBound="1" eType="/1/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rtmin" ordered="false" unique="false" lowerBound="1" eType="/1/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rttype" ordered="false" unique="false" lowerBound="1" eType="/1/Integer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="tasm">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="proj" ordered="false" lowerBound="1" eType="/0/Project" containment="true" eOpposite="/0/Project/projects"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="env" ordered="false" lowerBound="1" eType="/0/Environment" containment="true" eOpposite="/0/Environment/environments"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="masms" ordered="false" lowerBound="1" eType="/0/Mainmachines" containment="true" eOpposite="/0/Mainmachines/mainmachines"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sasms" ordered="false" lowerBound="1" eType="/0/Submachines" containment="true" eOpposite="/0/Submachines/submachines"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fasms" ordered="false" lowerBound="1" eType="/0/Funcmachines" containment="true" eOpposite="/0/Funcmachines/funcmachines"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sys" ordered="false" lowerBound="1" eType="/0/Systems" containment="true" eOpposite="/0/Systems/systems"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Project">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="projects" ordered="false" lowerBound="1" eType="/0/tasm" eOpposite="/0/tasm/proj"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="desc" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pid" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Environment">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="environments" ordered="false" lowerBound="1" eType="/0/tasm" eOpposite="/0/tasm/env"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="types" ordered="false" lowerBound="1" eType="/0/Types" containment="true" eOpposite="/0/Types/tys"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rsrcs" ordered="false" lowerBound="1" eType="/0/Resources" containment="true" eOpposite="/0/Resources/resources"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="chans" ordered="false" lowerBound="1" eType="/0/Channels" containment="true" eOpposite="/0/Channels/channels"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="vars" ordered="false" lowerBound="1" eType="/0/Variables" containment="true" eOpposite="/0/Variables/variables"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Variables">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variables" ordered="false" lowerBound="1" eType="/0/Environment" eOpposite="/0/Environment/vars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dvar" upperBound="-1" eType="/0/Variable" containment="true" eOpposite="/0/Variable/va"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Variable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="va" ordered="false" lowerBound="1" eType="/0/Variables" eOpposite="/0/Variables/dvar"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vconst" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vname" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vtype" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text_a" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Channels">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="channels" ordered="false" lowerBound="1" eType="/0/Environment" eOpposite="/0/Environment/chans"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="chan" upperBound="-1" eType="/0/Channel" containment="true" eOpposite="/0/Channel/ch"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Channel">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ch" ordered="false" lowerBound="1" eType="/0/Channels" eOpposite="/0/Channels/chan"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Types">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tys" ordered="false" lowerBound="1" eType="/0/Environment" eOpposite="/0/Environment/types"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="/0/Type" containment="true" eOpposite="/0/Type/ty"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Type">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ty" ordered="false" lowerBound="1" eType="/0/Types" eOpposite="/0/Types/type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tname" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mname" ordered="false" upperBound="-1" eType="/0/Mnames" containment="true" eOpposite="/0/Mnames/mnames"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Mnames">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mnames" ordered="false" lowerBound="1" eType="/0/Type" eOpposite="/0/Type/mname"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text_a" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Resources">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resources" ordered="false" lowerBound="1" eType="/0/Environment" eOpposite="/0/Environment/rsrcs"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rsrc" upperBound="-1" eType="/0/Resource" containment="true" eOpposite="/0/Resource/rs"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Resource">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rs" ordered="false" lowerBound="1" eType="/0/Resources" eOpposite="/0/Resources/rsrc"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rmax" ordered="false" unique="false" lowerBound="1" eType="/1/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rmin" ordered="false" unique="false" lowerBound="1" eType="/1/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rname" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Mainmachines">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mainmachines" ordered="false" lowerBound="1" eType="/0/tasm" eOpposite="/0/tasm/masms"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="masm" ordered="false" upperBound="-1" eType="/0/Machineasm" containment="true" eOpposite="/0/Machineasm/machineasm"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Machineasm">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="machineasm" ordered="false" lowerBound="1" eType="/0/Mainmachines" eOpposite="/0/Mainmachines/masm"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="desc" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cvars" ordered="false" lowerBound="1" eType="/0/Controlledvars" containment="true" eOpposite="/0/Controlledvars/controlledvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mvars" ordered="false" lowerBound="1" eType="/0/Monitoredvars" containment="true" eOpposite="/0/Monitoredvars/monitoredvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ivars" ordered="false" lowerBound="1" eType="/0/Internalvars" containment="true" eOpposite="/0/Internalvars/internalvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cons" ordered="false" lowerBound="1" eType="/0/Constructor" containment="true" eOpposite="/0/Constructor/constructor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rls" ordered="false" lowerBound="1" eType="/0/Mrules" containment="true" eOpposite="/0/Mrules/rlss"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Mrules">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rlss" ordered="false" lowerBound="1" eType="/0/Machineasm" eOpposite="/0/Machineasm/rls"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="srlss" ordered="false" lowerBound="1" eType="/0/Subasm" eOpposite="/0/Subasm/rls"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="frlss" ordered="false" lowerBound="1" eType="/0/Funcasm" eOpposite="/0/Funcasm/rls"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rl" upperBound="-1" eType="/0/Ruler" containment="true" eOpposite="/0/Ruler/rlrl"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Constructor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constructor" ordered="false" lowerBound="1" eType="/0/Machineasm" eOpposite="/0/Machineasm/cons"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cparams" ordered="false" lowerBound="1" eType="/0/Cparams" containment="true" eOpposite="/0/Cparams/cpa"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cbody" upperBound="-1" eType="/0/Cbody" containment="true" eOpposite="/0/Cbody/cbo"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Cbody">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cbo" ordered="false" lowerBound="1" eType="/0/Constructor" eOpposite="/0/Constructor/cbody"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text_a" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Cparams">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cpa" ordered="false" lowerBound="1" eType="/0/Constructor" eOpposite="/0/Constructor/cparams"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cparam" ordered="false" upperBound="-1" eType="/0/Cparam" containment="true" eOpposite="/0/Cparam/cp"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Cparam">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cp" ordered="false" lowerBound="1" eType="/0/Cparams" eOpposite="/0/Cparams/cparam"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cpindex" ordered="false" unique="false" lowerBound="1" eType="/1/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cpivname" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cptype" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Internalvars">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="internalvars" ordered="false" lowerBound="1" eType="/0/Machineasm" eOpposite="/0/Machineasm/ivars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="internalvarss" ordered="false" lowerBound="1" eType="/0/Subasm" eOpposite="/0/Subasm/ivars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dvar" upperBound="-1" eType="/0/Realvarss" containment="true" eOpposite="/0/Realvarss/rvas"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Realvarss" eSuperTypes="/0/Vname">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rvas" ordered="false" lowerBound="1" eType="/0/Internalvars" eOpposite="/0/Internalvars/dvar"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vconst" ordered="false" unique="false" lowerBound="1" eType="/1/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vtype" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text_a" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Monitoredvars">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="monitoredvars" ordered="false" lowerBound="1" eType="/0/Machineasm" eOpposite="/0/Machineasm/mvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="smonitoredvars" ordered="false" lowerBound="1" eType="/0/Subasm" eOpposite="/0/Subasm/mvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fmonitoredvars" ordered="false" lowerBound="1" eType="/0/Funcasm" eOpposite="/0/Funcasm/mvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rvar" upperBound="-1" eType="/0/Realvars" containment="true" eOpposite="/0/Realvars/rva"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Realvars" eSuperTypes="/0/Vname">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rva" ordered="false" lowerBound="1" eType="/0/Monitoredvars" eOpposite="/0/Monitoredvars/rvar"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Controlledvars">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controlledvars" ordered="false" lowerBound="1" eType="/0/Machineasm" eOpposite="/0/Machineasm/cvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scontrolledvars" ordered="false" lowerBound="1" eType="/0/Subasm" eOpposite="/0/Subasm/cvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rvar" upperBound="-1" eType="/0/Realvar" containment="true" eOpposite="/0/Realvar/rva"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Realvar" eSuperTypes="/0/Vname">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rva" ordered="false" lowerBound="1" eType="/0/Controlledvars" eOpposite="/0/Controlledvars/rvar"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Submachines">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="submachines" ordered="false" lowerBound="1" eType="/0/tasm" eOpposite="/0/tasm/sasms"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sasm" ordered="false" upperBound="-1" eType="/0/Subasm" containment="true" eOpposite="/0/Subasm/subasm"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Subasm">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subasm" ordered="false" lowerBound="1" eType="/0/Submachines" eOpposite="/0/Submachines/sasm"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="desc" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cvars" ordered="false" lowerBound="1" eType="/0/Controlledvars" containment="true" eOpposite="/0/Controlledvars/scontrolledvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mvars" ordered="false" lowerBound="1" eType="/0/Monitoredvars" containment="true" eOpposite="/0/Monitoredvars/smonitoredvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ivars" ordered="false" lowerBound="1" eType="/0/Internalvars" containment="true" eOpposite="/0/Internalvars/internalvarss"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rls" ordered="false" lowerBound="1" eType="/0/Mrules" containment="true" eOpposite="/0/Mrules/srlss"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Funcmachines">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="funcmachines" ordered="false" lowerBound="1" eType="/0/tasm" eOpposite="/0/tasm/fasms"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fasm" ordered="false" upperBound="-1" eType="/0/Funcasm" containment="true" eOpposite="/0/Funcasm/funcasm"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Funcasm">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="funcasm" ordered="false" lowerBound="1" eType="/0/Funcmachines" eOpposite="/0/Funcmachines/fasm"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="desc" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="invars" ordered="false" lowerBound="1" eType="/0/Inputvars" containment="true" eOpposite="/0/Inputvars/inputvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ovar" ordered="false" lowerBound="1" eType="/0/Outputvars" containment="true" eOpposite="/0/Outputvars/outputvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mvars" ordered="false" lowerBound="1" eType="/0/Monitoredvars" containment="true" eOpposite="/0/Monitoredvars/fmonitoredvars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rls" ordered="false" lowerBound="1" eType="/0/Mrules" containment="true" eOpposite="/0/Mrules/frlss"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Inputvars">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputvars" ordered="false" lowerBound="1" eType="/0/Funcasm" eOpposite="/0/Funcasm/invars"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pvar" upperBound="-1" eType="/0/Putvar" containment="true" eOpposite="/0/Putvar/putv"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Outputvars">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputvars" ordered="false" lowerBound="1" eType="/0/Funcasm" eOpposite="/0/Funcasm/ovar"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pvar" ordered="false" lowerBound="1" eType="/0/Putvar" containment="true" eOpposite="/0/Putvar/oputv"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Putvar" eSuperTypes="/0/Vname">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="putv" ordered="false" lowerBound="1" eType="/0/Inputvars" eOpposite="/0/Inputvars/pvar"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="oputv" ordered="false" lowerBound="1" eType="/0/Outputvars" eOpposite="/0/Outputvars/pvar"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vtype" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Systems">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="systems" ordered="false" lowerBound="1" eType="/0/tasm" eOpposite="/0/tasm/sys"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="confs" ordered="false" lowerBound="1" eType="/0/Configurations" containment="true" eOpposite="/0/Configurations/configurations"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Configurations">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" ordered="false" lowerBound="1" eType="/0/Systems" eOpposite="/0/Systems/confs"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="conf" upperBound="-1" eType="/0/Configuration" containment="true" eOpposite="/0/Configuration/configuration"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Configuration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="configuration" ordered="false" lowerBound="1" eType="/0/Configurations" eOpposite="/0/Configurations/conf"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="desc" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="minits" ordered="false" lowerBound="1" eType="/0/Machineinits" containment="true" eOpposite="/0/Machineinits/machineinits"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="vinits" ordered="false" lowerBound="1" eType="/0/Varinits" containment="true" eOpposite="/0/Varinits/varinits"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Varinits">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="varinits" ordered="false" lowerBound="1" eType="/0/Configuration" eOpposite="/0/Configuration/vinits"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="vinit" ordered="false" upperBound="-1" eType="/0/Varinit" containment="true" eOpposite="/0/Varinit/varini"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Varinit">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="varini" ordered="false" lowerBound="1" eType="/0/Varinits" eOpposite="/0/Varinits/vinit"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="viname" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vival" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Machineinits">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="machineinits" ordered="false" lowerBound="1" eType="/0/Configuration" eOpposite="/0/Configuration/minits"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="minit" ordered="false" lowerBound="1" upperBound="-1" eType="/0/Machineinit" containment="true" eOpposite="/0/Machineinit/machineinit"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Machineinit">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="machineinit" ordered="false" lowerBound="1" eType="/0/Machineinits" eOpposite="/0/Machineinits/minit"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tpname" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vname" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="params" ordered="false" lowerBound="1" eType="/0/Param" containment="true" eOpposite="/0/Param/para"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Param">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="para" ordered="false" lowerBound="1" eType="/0/Machineinit" eOpposite="/0/Machineinit/params"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="param" upperBound="-1" eType="/0/Par" containment="true" eOpposite="/0/Par/pa"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Par">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pa" ordered="false" lowerBound="1" eType="/0/Param" eOpposite="/0/Param/param"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pindex" ordered="false" unique="false" lowerBound="1" eType="/1/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pval" ordered="false" unique="false" lowerBound="1" eType="/1/String"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="Boolean"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Integer"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="String"/>
+  </ecore:EPackage>
+</xmi:XMI>
